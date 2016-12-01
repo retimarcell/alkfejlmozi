@@ -3,8 +3,8 @@
 const Lucid = use('Lucid')
 
 class Reserved extends Lucid {
-  screening () {
-      return this.belongsTo('App/Model/Screening')
+  movie () {
+      return this.belongsTo('App/Model/Movie')
   }
 }
 

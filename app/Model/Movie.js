@@ -7,8 +7,8 @@ class Movie extends Lucid {
     return this.belongsTo('App/Model/Category')
   }
 
-  screenings () {
-    return this.hasMany('App/Model/Screening')
+  reserved () {
+    return this.hasMany('App/Model/Reserved')
   }
 }
 

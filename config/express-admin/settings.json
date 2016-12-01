@@ -682,22 +682,6 @@
                     "text": true
                 },
                 "type": "varchar(225)",
-                "allowNull": false,
-                "defaultValue": null,
-                "listview": {
-                    "show": true
-                },
-                "editview": {
-                    "show": true
-                }
-            },
-            {
-                "name": "screening_id",
-                "verbose": "screening_id",
-                "control": {
-                    "text": true
-                },
-                "type": "integer",
                 "allowNull": true,
                 "defaultValue": null,
                 "listview": {
@@ -732,6 +716,38 @@
                 "type": "integer",
                 "allowNull": false,
                 "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "movie_id",
+                "verbose": "movie_id",
+                "control": {
+                    "text": true
+                },
+                "type": "integer",
+                "allowNull": true,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "taken",
+                "verbose": "taken",
+                "control": {
+                    "text": true
+                },
+                "type": "integer",
+                "allowNull": true,
+                "defaultValue": 0,
                 "listview": {
                     "show": true
                 },
