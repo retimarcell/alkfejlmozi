@@ -8,7 +8,7 @@ class Movie extends Lucid {
   }
 
   reserved () {
-    return this.hasMany('App/Model/Reserved')
+    return this.hasMany('App/Model/Reserveds')
   }
 }
 

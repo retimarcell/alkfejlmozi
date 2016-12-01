@@ -3,7 +3,7 @@
 const Database = use('Database')
 const Category = use('App/Model/Category')
 const Movie = use('App/Model/Movie')
-const Reserved = use('App/Model/Reserved')
+const Reserved = use('App/Model/Reserveds')
 const Validator = use('Validator')
 const fs = use('fs')
 
@@ -70,7 +70,7 @@ class MovieController {
 
         const seats = yield Reserved.all()
 
-        if (film) {
+        if (movie) {
             response.sendView('movieReserve', {
                 movie: movie.toJSON(),
                 seats: seats.toJSON()
