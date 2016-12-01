@@ -73,7 +73,7 @@ class MovieController {
         if (film) {
             response.sendView('movieReserve', {
                 movie: movie.toJSON(),
-                seats: seaths.toJSON()
+                seats: seats.toJSON()
             })
         }
     }
