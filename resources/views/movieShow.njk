@@ -8,6 +8,6 @@
 <pre>
 {{ movie.description }}
 </pre>
-<li><a href="{{movie.id}}/reserve" action="route({id: movie.id})">Helyfoglalas</a></li>
+<li><a href="{{ 'movieReserve' | route({ id: movie.id}) }}">Helyfoglalas</a></li>
 
 {% endblock %}

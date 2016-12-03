@@ -69,12 +69,10 @@ class MovieController {
         const movie = yield Movie.find(movieID)
         const seats = yield Reserved.all()
 
-        /*if (movie) {*/
-            response.sendView('movieReserve', {
-                movie: movie.toJSON(),
-                seats: seats.toJSON()
-            })
-        //}
+        response.sendView('movieReserve', {
+        movie: movie.toJSON(),
+        seats: seats.toJSON()
+        })
     }
 
     *doReserveMovie(request,response) {

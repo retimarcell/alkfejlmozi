@@ -30,5 +30,5 @@ Route.get('/movies/:id', 'MovieController.show')
 
 Route.get('/movies/create', 'MovieController.createMovie').middleware('auth')
 Route.post('/movies/create', 'MovieController.doCreateMovie').middleware('auth')
-Route.get('/movies/:id/reserve', 'MovieController.reserveMovie')
+Route.get('/movies/:id/reserve', 'MovieController.reserveMovie').as('movieReserve')
 Route.post('/movies/:id/reserve', 'MovieController.doReserveMovie')
