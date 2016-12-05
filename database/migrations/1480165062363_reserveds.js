@@ -12,6 +12,7 @@ class ReservedsTableSchema extends Schema {
       table.integer('row').notNullable()
       table.integer('column').notNullable()
       table.integer('taken').notNullable()
+      table.string('seat').notNullable()
     })
   }
 

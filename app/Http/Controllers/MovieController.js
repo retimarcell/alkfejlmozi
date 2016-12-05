@@ -69,14 +69,30 @@ class MovieController {
         const movie = yield Movie.find(movieID)
         const seats = yield Reserved.all()
 
-        response.sendView('movieReserve', {
-        movie: movie.toJSON(),
-        seats: seats.toJSON()
-        })
+        if (movie) {
+            yield response.sendView('movieReserve', {
+                movie: movie.toJSON(),
+                seats: seats.toJSON()
+            })
+        }
     }
 
     *doReserveMovie(request,response) {
         const reserveData = request.all()
+        const movieID = request.param('id')
+        const movie = yield Movie.find(movieID)
+
+        const seats = yield Seat.all()
+        const seatID = yield Seat.ids()
+        var i;
+
+        for (i = 0; i < seats.count; i++) {
+            if (reserveData == 1) {
+                const tmp = yield Seat.find(ids[i]);
+                tmp.taken = 1;
+            }
+        }
+        response.route('/')
     }
 }
 

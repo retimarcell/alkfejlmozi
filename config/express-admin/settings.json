@@ -754,6 +754,22 @@
                 "editview": {
                     "show": true
                 }
+            },
+            {
+                "name": "seat",
+                "verbose": "seat",
+                "control": {
+                    "text": true
+                },
+                "type": "varchar(255)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
             }
         ],
         "mainview": {
@@ -862,6 +878,22 @@
                     "text": true
                 },
                 "type": "integer",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "seat",
+                "verbose": "seat",
+                "control": {
+                    "text": true
+                },
+                "type": "string",
                 "allowNull": false,
                 "defaultValue": null,
                 "listview": {

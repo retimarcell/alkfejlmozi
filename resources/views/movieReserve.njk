@@ -22,22 +22,20 @@
 <div class="form-horizontal" action="{{ 'doreserveMovie' | route({id: movie.id}) }}" method="POST">
     <div class="form-group">
         <label for="checkboxes" class="col-lg-2 control-label">Válasszon helyet!</label>
-        {% for seatrow in seats | batch(2) %}
-            {% for seat in seatrow %}<li>
+        {% for seat in seats %}
                 {% if seat.movie_id == movie.id %}
                     {% if seat.taken == 0 %}
-                        <label><input type="checkbox" name="{{seat.column + seat.row}}"/>{{seat.column}}</label>
+                        <li><label><input type="checkbox" name="{{ seat.seat}}" onchange="Function{{seat.seat}}()"/>{{seat.seat}}</label></li>
                     {% else %}
-                        <input type="checkbox" name="{{seat.column + seat.row}}"/>
+                        <label>{{seat.seat}} - TAKEN</label>
                     {% endif %}
                 {% endif %}
-            </li>{% endfor %}
         {% endfor %}
     </div>
     <div class="form-group">
         <label for="nev" class="col-lg-2 control-label">Adja meg a nevét!</label>
         <div class="col-lg-10">
-            <textarea class="form-control" rows="3" id="name" name="name">{{old('name')}}</textarea>
+            <textarea class="form-control" rows="3" id="name" name="name" required>{{old('name')}}</textarea>
             <span class="help-block">Leírás</span>
         </div>
     </div>
@@ -48,5 +46,17 @@
         </div>
     </div>
 </div>
+
+{% for seat in seats %}
+    <script>
+        function Function{{seat.seat}}() {
+            if ( document.getElementById("{{seat.seat}}").value == 0) {
+                document.getElementById("{{seat.seat}}").value = 1;
+            } else {
+                document.getElementById("{{seat.seat}}").value = 0;
+            }
+        }
+    </script>
+{% endfor %}
 
 {% endblock %}
