@@ -58,10 +58,18 @@ class MovieController {
                 .flash()
             response.redirect('back')
             return
+        } else {
+            const newmovie = new Movie()
+            newmovie.name = movieData.name
+            newmovie.description = movieData.description
+            newmovie.hossz = movieData.hossz
+            newmovie.category_id = movieData.category_id
+            yield newmovie.save()
+            response.redirect('/')
         }
  
-        const movie = yield Movie.create(movieData)
-        response.redirect('/')
+        //const movie = yield Movie.create(movieData)
+        
     }
  
     *reserveMovie(request, response) {
@@ -90,7 +98,7 @@ class MovieController {
             if (reserveData == 1) {
                 const tmp = yield Reserved.find(ids[i]);
                 tmp.taken = 1;
-                tmp.update();
+                yield tmp.update();
             }
         }
         response.route('/')
