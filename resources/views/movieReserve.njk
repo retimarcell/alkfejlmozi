@@ -1,9 +1,9 @@
 {% extends "layout" %}
-
+ 
 {% block content %}
-
+ 
 <h2>Helyfoglalas</h2>
-
+ 
 {% if old('errors') %}
 <div class="panel panel-danger">
   <div class="panel-heading">
@@ -18,8 +18,10 @@
   </div>
 </div>
 {% endif %}
-
-<div class="form-horizontal" action="{{ 'doreserveMovie' | route({id: movie.id}) }}" method="POST">
+ 
+<div class="form-horizontal">
+    <form class="form-horizontal" action="{{ 'reserve' | route({id: movie.id}) }}" method="POST">
+    {{ csrfField }}
     <div class="form-group">
         <label for="checkboxes" class="col-lg-2 control-label">Válasszon helyet!</label>
         {% for seat in seats %}
@@ -45,8 +47,9 @@
         <button type="submit" class="btn btn-primary">Küldés</button>
         </div>
     </div>
+    </form>
 </div>
-
+ 
 {% for seat in seats %}
     <script>
         function Function{{seat.seat}}() {
@@ -58,5 +61,5 @@
         }
     </script>
 {% endfor %}
-
+ 
 {% endblock %}
