@@ -90,7 +90,7 @@ class MovieController {
             if (reserveData == 1) {
                 const tmp = yield Reserved.find(ids[i]);
                 tmp.taken = 1;
-                //mentés adatbázisba!!
+                tmp.update();
             }
         }
         response.route('/')

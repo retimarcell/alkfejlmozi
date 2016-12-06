@@ -34,7 +34,7 @@
           <ul class="nav navbar-nav">
               <li><a href="/">Filmek böngészése</a></li>
               {% if currentUser %}
-              <li><a href="/movies/create">Film felvétele</a></li>
+              <li><a href="/create">Film felvétele</a></li>
               {% endif %}
           </ul>
           
@@ -43,7 +43,7 @@
               <li class="navbar-text">Üdv, {{ currentUser.username }}!</li>
               <li><a href="/logout">Kilépés</a></li>
             {% else %}
-              <li><a href="/login">Belépés</a></li>
+              <li><a id="btnLogin" href="/login">Belépés</a></li>
               <li><a href="/register">Regisztráció</a></li>
             {% endif %}
           </ul>
@@ -61,3 +61,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 </html>
+
+<!--{% block scripts %}
+  <script src="scripts/login_popup.js"></script>
+{% endblock %}-->
