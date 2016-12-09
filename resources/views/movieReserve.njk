@@ -1,9 +1,9 @@
 {% extends "layout" %}
  
 {% block content %}
- 
+ <div>
 <h2>Helyfoglalas</h2>
- 
+ </div>
 {% if old('errors') %}
 <div class="panel panel-danger">
   <div class="panel-heading">
@@ -23,11 +23,12 @@
     <form class="form-horizontal" action="{{ 'reserve' | route({id: movie.id}) }}" method="POST">
     {{ csrfField }}
     <div class="form-group">
-        <label for="checkboxes" class="col-lg-2 control-label">Válasszon helyet!</label>
+        <label for="checkboxes" class="col-lg-2 control-label">Válasszon helyet!</label></br>
+        <br></br>
         {% for seat in seats %}
                 {% if seat.movie_id == movie.id %}
                     {% if seat.taken == 0 %}
-                        <li><label><input type="checkbox" name="{{ seat.seat}}" onchange="Function{{seat.seat}}()"/>{{seat.seat}}</label></li>
+                        <li><label><input type="checkbox" name="{{seat.seat}}" onchange="Function{{seat.seat}}()"/>{{seat.seat}}</label></li>
                     {% else %}
                         <label>{{seat.seat}} - TAKEN</label>
                     {% endif %}

@@ -11,6 +11,7 @@ class MoviesTableSchema extends Schema {
       table.text('description')
       table.integer('hossz').notNullable()
       table.integer('category_id').unsigned().references('id').inTable('categories')
+      table.timestamps()
     })
   }
 

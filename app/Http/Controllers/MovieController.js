@@ -86,18 +86,36 @@ class MovieController {
     }
  
     *doReserveMovie(request,response) {
-        const reserveData = request.all()
+        const reserveData = request.except('_csrf');
         const movieID = request.param('id')
         const movie = yield Movie.find(movieID)
  
         const seats = yield Reserved.all()
         const seatID = yield Reserved.ids()
         var i;
- 
-        for (i = 0; i < seats.count; i++) {
-            if (reserveData == 1) {
-                const tmp = yield Reserved.find(ids[i]);
+        for (i = 0; i < seats.size(); i=i+1) {
+            const tmp = yield Reserved.find(i+1);
+            if (request.input('s1o1') == 'on' && tmp.seat == 's1o1') {
                 tmp.taken = 1;
+                tmp.name = request.input('name');
+                yield tmp.update();
+            }
+
+            if (request.input('s1o2') == 'on' && tmp.seat == 's1o2') {
+                tmp.taken = 1;
+                tmp.name = request.input('name');
+                yield tmp.update();
+            }
+
+            if (request.input('s2o1') == 'on' && tmp.seat == 's2o1') {
+                tmp.taken = 1;
+                tmp.name = request.input('name');
+                yield tmp.update();
+            }
+
+            if (request.input('s2o2') == 'on' && tmp.seat == 's2o2') {
+                tmp.taken = 1;
+                tmp.name = request.input('name');
                 yield tmp.update();
             }
         }
