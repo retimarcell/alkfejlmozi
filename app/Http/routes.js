@@ -32,3 +32,9 @@ Route.get('/create', 'MovieController.createMovie').as('movieCreate').middleware
 Route.post('/create', 'MovieController.doCreateMovie').middleware('auth')
 Route.get('/movies/:id/reserve', 'MovieController.reserveMovie').as('movieReserve')
 Route.post('/movies/:id/reserve', 'MovieController.doReserveMovie')
+
+Route.group('ajax', function () {
+  Route.post('/login', 'UserController.ajaxLogin')
+  Route.post('/register', 'UserController.ajaxRegister')
+  Route.post('/create', 'MovieController.ajaxCreateMovie')
+}).prefix('/ajax')

@@ -71,6 +71,21 @@ class MovieController {
         //const movie = yield Movie.create(movieData)
         
     }
+
+    *ajaxCreateMovie(request,response) {
+        const movieData = request.except('_csrf');
+ 
+        const newmovie = new Movie()
+        newmovie.name = movieData.name
+        newmovie.description = movieData.description
+        newmovie.hossz = movieData.hossz
+        newmovie.category_id = movieData.category_id
+        yield newmovie.save()
+
+        response.send({ success: true })
+        return
+    
+    }
  
     *reserveMovie(request, response) {
         const movieID = request.param('id')

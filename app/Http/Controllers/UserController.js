@@ -42,6 +42,23 @@ class UserController {
         }
     }
  
+* ajaxLogin(request, response) {
+    const email = request.input('email')
+    const password = request.input('password')
+	
+    try {
+      const login = yield request.auth.attempt(email, password)
+      if (login) {
+        response.send({ success: true })
+        return
+      }
+    } 
+    catch (err) {
+      response.send({ success: false })
+    }
+  }
+
+ 
     *logout(request, response) {
         yield request.auth.logout()
         response.redirect('/')
@@ -88,6 +105,22 @@ class UserController {
        
         response.route('/')
 }
+
+
+* ajaxRegister(request, response) {
+        const userData = request.all()
+       
+        const user = new User()
+        user.username = userData.username
+        user.email = userData.email
+        user.password = yield Hash.make(userData.password)
+ 
+        yield user.save()
+ 
+        yield request.auth.login(user)
+        response.send({ success: true })
+        return
+    }
  
 }
  
