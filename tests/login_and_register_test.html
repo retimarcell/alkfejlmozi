@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:3333/" />
+<title>login_and_register_test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">login_and_register_test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=btnRegister</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>Teszt3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>teszt3@gmail.hu</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>1234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_confirm</td>
+	<td>1234</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Kilépés</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=btnLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>teszt3@gmail.hu</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>1234</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=li.navbar-text</td>
+	<td>Üdv, Teszt3!</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Kilépés</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=btnLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>teszt32@gmail.hu</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>1234</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.alert.alert-danger</td>
+	<td>Hibás adatok!</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
